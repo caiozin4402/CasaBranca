@@ -253,8 +253,8 @@ class Server:
         # rota para servir a página de login na raiz '/'
         @self.__app.route('/', methods=['GET'])   
         def serve_root():
-            # envia o arquivo static/home.html
-            return send_from_directory(self.__app.static_folder, 'home.html') 
+            # envia o arquivo static/index.html
+            return send_from_directory(self.__app.static_folder, 'index.html') 
 
         
         @self.__app.route('/login.html')
