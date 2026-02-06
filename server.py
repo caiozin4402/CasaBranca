@@ -251,9 +251,15 @@ class Server:
             print("-" * 70)
 
         # rota para servir a página de login na raiz '/'
-        @self.__app.route('/', methods=['GET'])
+        @self.__app.route('/', methods=['GET'])   
         def serve_root():
-            # envia o arquivo static/login.html
+            # envia o arquivo static/home.html
+            return send_from_directory(self.__app.static_folder, 'home.html') 
+
+        
+        @self.__app.route('/login.html')
+        def serve_login():
+            print("📄 Servindo login.html")
             return send_from_directory(self.__app.static_folder, 'login.html')
 
     def __error_middleware(self):

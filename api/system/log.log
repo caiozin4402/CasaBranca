@@ -304,3 +304,24 @@ CPF em formato inválido.
 [2025-11-03T12:57:53.636633] [ERROR]
 CPF em formato inválido.
 --------------------------------------------------------------------------------
+[2026-02-04T23:43:12.184285] [ERROR]
+405 Method Not Allowed: The method is not allowed for the requested URL.
+--------------------------------------------------------------------------------
+[2026-02-04T23:45:57.973765] [ERROR]
+405 Method Not Allowed: The method is not allowed for the requested URL.
+--------------------------------------------------------------------------------
+[2026-02-04T23:54:46.639077] [ERROR]
+405 Method Not Allowed: The method is not allowed for the requested URL.
+--------------------------------------------------------------------------------
+[2026-02-04T23:54:47.677706] [ERROR]
+405 Method Not Allowed: The method is not allowed for the requested URL.
+--------------------------------------------------------------------------------
+[2026-02-04T23:54:48.018809] [ERROR]
+405 Method Not Allowed: The method is not allowed for the requested URL.
+--------------------------------------------------------------------------------
+[2026-02-04T23:54:48.290038] [ERROR]
+405 Method Not Allowed: The method is not allowed for the requested URL.
+--------------------------------------------------------------------------------
+[2026-02-04T23:55:06.807362] [ERROR]
+405 Method Not Allowed: The method is not allowed for the requested URL.
+--------------------------------------------------------------------------------
