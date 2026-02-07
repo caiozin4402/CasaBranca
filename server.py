@@ -250,11 +250,14 @@ class Server:
         def log_separator():
             print("-" * 70)
 
-        # rota para servir a página de login na raiz '/'
         @self.__app.route('/', methods=['GET'])   
         def serve_root():
-            # envia o arquivo static/index.html
-            return send_from_directory(self.__app.static_folder, 'index.html') 
+            # 🔴 ANTES (busca em static/):
+            # return send_from_directory(self.__app.static_folder, 'index.html')
+            
+            # 🟢 AGORA (busca na raiz do projeto):
+            import os
+            return send_from_directory(os.getcwd(), 'index.html') 
 
         
         @self.__app.route('/login.html')
