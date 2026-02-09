@@ -354,7 +354,7 @@
         // Verificar autenticação
         const userData = JSON.parse(localStorage.getItem("userData"));
         if (!userData) {
-            window.location.href = "./login.html";
+            window.location.href = "login.html";
         }
 
         const token = userData.data?.token || userData.token;

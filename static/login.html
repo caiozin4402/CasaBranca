@@ -91,7 +91,7 @@
 </head>
 <body>
     <!-- Botão Voltar para index -->
-    <a href="./index.html" class="btn-voltar-index">
+    <a href="../index.html" class="btn-voltar-index">
         <i class="fas fa-arrow-left"></i>
         Voltar para home
     </a>
@@ -217,7 +217,7 @@
                 // Redirecionar após 2 segundos para ver os logs
                 setTimeout(() => {
                     console.log("🎯 REDIRECIONANDO PARA DASHBOARD...");
-                    window.location.href = "./dashboard.html";
+                    window.location.href = "dashboard.html";
                 }, 2000);
             } else {
                 console.log("❌ ERRO NO LOGIN:", data.error);
@@ -266,7 +266,7 @@
         mostrarMensagem("Login realizado com sucesso!", "success");
         setTimeout(() => {
             console.log("🎯 Redirecionando para dashboard...");
-            window.location.href = "./dashboard.html";
+            window.location.href = "dashboard.html";
         }, 1000);
     }
     </script>
