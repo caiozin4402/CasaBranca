@@ -23,7 +23,7 @@ export default class ApiService {
         console.error("❌ Erro de autenticação - redirecionando para login");
         localStorage.removeItem("token");
         localStorage.removeItem("userData");
-        window.location.href = "./login.html";
+        window.location.href = "login.html";
     }
 
     /**
