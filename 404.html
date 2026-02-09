@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Casa Branca Resort - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #ff6b6b;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-dark: linear-gradient(135deg, #2c3e50 0%, #4a6491 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+
+        /* Navbar estilizada */
+        .navbar-custom {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+        }
+
+        .navbar-custom.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary-color) !important;
+        }
+
+        .navbar-brand i {
+            color: var(--secondary-color);
+        }
+
+        .nav-link {
+            font-weight: 600;
+            margin: 0 5px;
+            padding: 8px 20px !important;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            color: var(--dark-color) !important;
+        }
+
+        .nav-link:hover {
+            background: var(--gradient-primary);
+            color: white !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            background: var(--gradient-primary);
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-admin {
+            background: var(--gradient-dark);
+            color: white !important;
+            border-radius: 50px;
+            padding: 10px 25px !important;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+        }
+
+        .btn-admin:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(44, 62, 80, 0.4);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 180px 0 100px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            opacity: 0.15;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 700px;
+        }
+
+        .btn-hero {
+            background: white;
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            color: var(--secondary-color);
+        }
+
+        /* Seções comuns */
+        .section-title {
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        /* Depoimentos */
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            height: 100%;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gradient-dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 50px;
+            text-align: center;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-padding {
+                padding: 60px 0;
+            }
+            
+            .navbar-nav {
+                text-align: center;
+                padding-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar ATUALIZADA (sem botão Chalés) -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-mountain"></i> Casa Branca
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sobre">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#reservar">Reservar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn-admin" href="./login.html">
+                            <i class="fas fa-user-shield me-2"></i>Admin
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <h1 class="hero-title">Sua fuga perfeita nas montanhas</h1>
+                    <p class="hero-subtitle">
+                        Descubra o refúgio ideal para relaxar e se reconectar com a natureza. 
+                        Chalés aconchegantes, paisagens deslumbrantes e experiências únicas 
+                        esperam por você na Casa Branca.
+                    </p>
+                    <a href="#reservar" class="btn btn-hero">
+                        <i class="fas fa-calendar-check me-2"></i>Fazer Reserva
+                    </a>
+                </div>
+                <div class="col-lg-5">
+                    <!-- Espaço para imagem ou vídeo -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="section-padding bg-light" id="sobre">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="section-title">Sobre a Casa Branca</h2>
+                    <p class="lead mb-4">
+                        Localizada no coração da Serra Gaúcha, a Casa Branca Resort 
+                        oferece uma experiência única de hospedagem em chalés rústicos 
+                        com todo o conforto moderno.
+                    </p>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="fas fa-tree fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5>Natureza Preservada</h5>
+                                    <p class="mb-0">25 hectares de mata nativa para explorar</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="fas fa-hot-tub fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5>Lazer Completo</h5>
+                                    <p class="mb-0">Piscina aquecida, sauna e trilhas</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="fas fa-utensils fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5>Culinária Regional</h5>
+                                    <p class="mb-0">Café colonial e jantares temáticos</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="fas fa-wifi fa-2x text-primary"></i>
+                                </div>
+                                <div>
+                                    <h5>Conforto Moderno</h5>
+                                    <p class="mb-0">Wi-Fi, TV a cabo e lareira</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                         alt="Chalé Casa Branca" class="img-fluid rounded shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulário de Reserva -->
+    <section class="section-padding" id="reservar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">Faça sua Reserva</h2>
+                        <p class="lead">Preencha o formulário abaixo para garantir sua estadia</p>
+                    </div>
+                    
+                    <div class="card shadow border-0">
+                        <div class="card-body p-5">
+                            <form id="formReserva">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="nome" class="form-label">Nome Completo *</label>
+                                        <input type="text" class="form-control" id="nome" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label">E-mail *</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="telefone" class="form-label">Telefone *</label>
+                                        <input type="tel" class="form-control" id="telefone" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="pessoas" class="form-label">Número de Pessoas *</label>
+                                        <select class="form-select" id="pessoas" required>
+                                            <option value="1">1 pessoa</option>
+                                            <option value="2">2 pessoas</option>
+                                            <option value="3">3-4 pessoas</option>
+                                            <option value="5">5-6 pessoas</option>
+                                            <option value="7">Mais de 6 pessoas</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="checkin" class="form-label">Data de Check-in *</label>
+                                        <input type="date" class="form-control" id="checkin" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="checkout" class="form-label">Data de Check-out *</label>
+                                        <input type="date" class="form-control" id="checkout" required>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="chale" class="form-label">Chalé Desejado *</label>
+                                        <select class="form-select" id="chale" required>
+                                            <option value="">Selecione um chalé</option>
+                                            <option value="romantico">Chalé romântico</option>
+                                            <option value="familiar">Chalé familiar</option>
+                                            <option value="premium">premium</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="mensagem" class="form-label">Mensagem Adicional</label>
+                                        <textarea class="form-control" id="mensagem" rows="4" 
+                                                  placeholder="Informações adicionais, pedidos especiais..."></textarea>
+                                    </div>
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" class="btn btn-primary btn-lg w-100">
+                                            <i class="fas fa-paper-plane me-2"></i>Enviar Reserva
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="reservaMensagem" class="mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer ATUALIZADO -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">
+                        <i class="fas fa-mountain me-2"></i>Casa Branca
+                    </h4>
+                    <p class="mt-3">
+                        Um refúgio perfeito nas montanhas para quem busca tranquilidade, 
+                        contato com a natureza e conforto.
+                    </p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="footer-title">Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#reservar">Faça sua Reserva</a></li>
+                        <li><a href="./login.html">Área do Administrador</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h4 class="footer-title">Contato</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i>Serra Gaúcha, RS - Brasil</li>
+                        <li><i class="fas fa-phone me-2"></i>(54) 99999-9999</li>
+                        <li><i class="fas fa-envelope me-2"></i>contato@casabranca.com</li>
+                        <li><i class="fas fa-clock me-2"></i>Check-in: 14h | Check-out: 12h</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-12">
+                    <div class="copyright">
+                        <p>&copy; Esse site é dado como portifólio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    // Configuração
+    const API_URL = "http://127.0.0.1:8000";
+    const ENDPOINT_PUBLICO = "/api/v1/reservas/publica";
+    
+    // Quando formulário é enviado
+    document.getElementById('formReserva').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const divMensagem = document.getElementById('reservaMensagem');
+        divMensagem.innerHTML = '';
+        
+        // 1. COLETAR DADOS
+        const dados = {
+            nome: document.getElementById('nome').value.trim(),
+            email: document.getElementById('email').value.trim(),
+            telefone: document.getElementById('telefone').value.trim(),
+            chale_desejado: document.getElementById('chale').value,
+            data_inicio: document.getElementById('checkin').value,
+            data_fim: document.getElementById('checkout').value,
+            numero_pessoas: parseInt(document.getElementById('pessoas').value),
+            observacoes: document.getElementById('mensagem').value.trim() || ''
+        };
+        
+        console.log('📝 Dados coletados:', dados);
+        
+        // 2. VALIDAÇÃO LOCAL
+        const validacao = validarDados(dados);
+        if (!validacao.valido) {
+            mostrarMensagem(validacao.erro, 'danger');
+            return;
+        }
+        
+        // 3. PREPARAR ENVIO
+        const botao = this.querySelector('button[type="submit"]');
+        const textoOriginal = botao.innerHTML;
+        botao.disabled = true;
+        botao.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Enviando...';
+        
+        // 4. ENVIAR PARA API
+        try {
+            console.log('🚀 Enviando para API...');
+            
+            const resposta = await fetch(API_URL + ENDPOINT_PUBLICO, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    reserva_publica: dados
+                })
+            });
+            
+            const resultado = await resposta.json();
+            console.log('📦 Resposta da API:', resultado);
+            
+            if (resultado.success) {
+                // SUCESSO!
+                mostrarSucesso(dados, resultado.data);
+                
+                // Limpar formulário após 5 segundos
+                setTimeout(() => {
+                    this.reset();
+                    // Resetar data mínima
+                    const hoje = new Date().toISOString().split('T')[0];
+                    document.getElementById('checkin').min = hoje;
+                }, 5000);
+                
+            } else {
+                // ERRO DA API
+                const erroMsg = resultado.error?.message || 'Erro desconhecido';
+                mostrarErro(erroMsg);
+            }
+            
+        } catch (erro) {
+            console.error('💥 Erro de rede:', erro);
+            mostrarErroRede(dados);
+            
+        } finally {
+            // Restaurar botão
+            botao.disabled = false;
+            botao.innerHTML = textoOriginal;
+        }
+    });
+    
+    // FUNÇÕES AUXILIARES
+    function validarDados(dados) {
+        // Campos obrigatórios
+        const campos = [
+            {nome: 'Nome', campo: 'nome'},
+            {nome: 'E-mail', campo: 'email'},
+            {nome: 'Telefone', campo: 'telefone'},
+            {nome: 'Chalé', campo: 'chale_desejado'},
+            {nome: 'Check-in', campo: 'data_inicio'},
+            {nome: 'Check-out', campo: 'data_fim'}
+        ];
+        
+        for (const {nome, campo} of campos) {
+            if (!dados[campo]) {
+                return {valido: false, erro: `❌ ${nome} é obrigatório`};
+            }
+        }
+        
+        // Validação de e-mail simples
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(dados.email)) {
+            return {valido: false, erro: '❌ E-mail inválido'};
+        }
+        
+        // Validação de datas
+        const inicio = new Date(dados.data_inicio);
+        const fim = new Date(dados.data_fim);
+        const hoje = new Date();
+        hoje.setHours(0, 0, 0, 0);
+        
+        if (inicio < hoje) {
+            return {valido: false, erro: '❌ Check-in não pode ser no passado'};
+        }
+        
+        if (fim <= inicio) {
+            return {valido: false, erro: '❌ Check-out deve ser depois do check-in'};
+        }
+        
+        // Validação de pessoas
+        if (!dados.numero_pessoas || dados.numero_pessoas < 1) {
+            return {valido: false, erro: '❌ Número de pessoas inválido'};
+        }
+        
+        return {valido: true};
+    }
+    
+    function mostrarSucesso(dadosForm, dadosAPI) {
+        const nomesChales = {
+            'romantico': 'Chalé Romântico',
+            'familiar': 'Chalé Familiar',
+            'premium': 'Suíte Premium'
+        };
+        
+        const nomeChale = nomesChales[dadosForm.chale_desejado] || dadosForm.chale_desejado;
+        
+        const html = `
+            <div class="alert alert-success">
+                <h5 class="alert-heading">
+                    <i class="fas fa-check-circle me-2"></i>
+                    Reserva realizada com sucesso!
+                </h5>
+                <hr>
+                <p><strong>📋 Detalhes:</strong></p>
+                <ul class="mb-3">
+                    <li><strong>Número:</strong> #${dadosAPI.reserva.id || 'GERADA'}</li>
+                    <li><strong>Nome:</strong> ${dadosForm.nome}</li>
+                    <li><strong>Chalé:</strong> ${nomeChale}</li>
+                    <li><strong>Período:</strong> ${formatarData(dadosForm.data_inicio)} a ${formatarData(dadosForm.data_fim)}</li>
+                    <li><strong>Pessoas:</strong> ${dadosForm.numero_pessoas}</li>
+                    <li><strong>Status:</strong> <span class="badge bg-warning">${dadosAPI.reserva.status}</span></li>
+                </ul>
+                <hr>
+                <p class="mb-0 small">
+                    <i class="fas fa-info-circle me-1"></i>
+                    ${dadosAPI.reserva.mensagem}<br>
+                    <i class="fas fa-envelope me-1"></i>
+                    Contato: ${dadosForm.email}<br>
+                    <i class="fas fa-phone me-1"></i>
+                    Dúvidas: (54) 99999-9999
+                </p>
+            </div>
+        `;
+        
+        document.getElementById('reservaMensagem').innerHTML = html;
+        
+        // Rolar para mensagem
+        setTimeout(() => {
+            document.getElementById('reservaMensagem').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }, 100);
+    }
+    
+    function mostrarErro(mensagem) {
+        mostrarMensagem(`
+            <i class="fas fa-exclamation-circle me-2"></i>
+            <strong>Erro:</strong> ${mensagem}
+        `, 'danger');
+    }
+    
+    function mostrarErroRede(dados) {
+        mostrarMensagem(`
+            <i class="fas fa-wifi-slash me-2"></i>
+            <strong>Problema de conexão</strong><br>
+            <small>
+                Sua solicitação foi registrada localmente.<br>
+                Entraremos em contato: <strong>${dados.telefone}</strong>
+            </small>
+        `, 'warning');
+        
+        // Salvar localmente
+        const pendentes = JSON.parse(localStorage.getItem('reservasPendentes') || '[]');
+        pendentes.push({...dados, timestamp: new Date().toISOString()});
+        localStorage.setItem('reservasPendentes', JSON.stringify(pendentes));
+    }
+    
+    function mostrarMensagem(conteudo, tipo) {
+        document.getElementById('reservaMensagem').innerHTML = `
+            <div class="alert alert-${tipo} alert-dismissible fade show">
+                ${conteudo}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        `;
+    }
+    
+    function formatarData(dataStr) {
+        return new Date(dataStr + 'T00:00:00').toLocaleDateString('pt-BR');
+    }
+    
+    // INICIALIZAÇÃO
+    document.addEventListener('DOMContentLoaded', function() {
+        // Data mínima = hoje
+        const hoje = new Date().toISOString().split('T')[0];
+        document.getElementById('checkin').min = hoje;
+        
+        // Quando check-in muda, atualiza check-out
+        document.getElementById('checkin').addEventListener('change', function() {
+            const checkin = this.value;
+            const checkout = document.getElementById('checkout');
+            
+            checkout.min = checkin;
+            if (checkout.value && checkout.value < checkin) {
+                checkout.value = '';
+            }
+        });
+    });
+</script>
+</body>
+</html>
