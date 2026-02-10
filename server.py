@@ -246,6 +246,11 @@ class Server:
             print("📄 Servindo dashboard.html")
             return send_from_directory(self.__app.static_folder, 'dashboard.html')
 
+        @self.__app.route('/static/<path:filename>')
+        def serve_static_files(filename):
+            return send_from_directory(self.__app.static_folder, filename)
+        
+
         @self.__app.before_request
         def log_separator():
             print("-" * 70)
