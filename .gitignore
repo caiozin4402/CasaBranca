@@ -1,0 +1,46 @@
+# ARQUIVOS SENSÍVEIS
+.env
+*.env
+.env.local
+.env.production
+
+# PYTHON
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.log
+
+# VIRTUAL ENVIRONMENTS
+venv/
+env/
+ENV/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# SISTEMA OPERACIONAL
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# BANCO DE DADOS LOCAL
+*.db
+*.sqlite
+*.sqlite3
+
+# OUTROS
+.pytest_cache/
+.coverage
+htmlcov/
